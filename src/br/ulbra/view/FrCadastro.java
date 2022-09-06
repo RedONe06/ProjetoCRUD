@@ -32,23 +32,23 @@ public class FrCadastro extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        edCodigo = new javax.swing.JTextField();
+        edNome = new javax.swing.JTextField();
+        edEmail = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jTextField5 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        rbFeminino = new javax.swing.JRadioButton();
+        rbMasculino = new javax.swing.JRadioButton();
+        rbOutros = new javax.swing.JRadioButton();
+        edSenha = new javax.swing.JTextField();
+        edTelefone = new javax.swing.JFormattedTextField();
+        btnCancelarBusca = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jTextField4 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        edPesquisar = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnAlterar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -76,39 +76,53 @@ public class FrCadastro extends javax.swing.JFrame {
         jLabel1.setText("CADASTRO DE USUÁRIOS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 255, 204));
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 139, -1));
-
-        jTextField2.setBackground(new java.awt.Color(204, 255, 204));
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        edCodigo.setBackground(new java.awt.Color(204, 255, 204));
+        edCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
+        edCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                edCodigoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 281, -1));
+        jPanel1.add(edCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 139, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 255, 204));
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 281, -1));
+        edNome.setBackground(new java.awt.Color(204, 255, 204));
+        edNome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
+        edNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edNomeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(edNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 281, -1));
+
+        edEmail.setBackground(new java.awt.Color(204, 255, 204));
+        edEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
+        edEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edEmailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(edEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 281, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sexo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 11))); // NOI18N
 
-        jRadioButton2.setBackground(new java.awt.Color(204, 255, 204));
-        jRadioButton2.setText("Feminino");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        rbFeminino.setBackground(new java.awt.Color(204, 255, 204));
+        buttonGroup1.add(rbFeminino);
+        rbFeminino.setSelected(true);
+        rbFeminino.setText("Feminino");
+        rbFeminino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rbFemininoActionPerformed(evt);
             }
         });
 
-        jRadioButton1.setBackground(new java.awt.Color(204, 255, 204));
-        jRadioButton1.setText("Masculino");
+        rbMasculino.setBackground(new java.awt.Color(204, 255, 204));
+        buttonGroup1.add(rbMasculino);
+        rbMasculino.setText("Masculino");
 
-        jRadioButton3.setBackground(new java.awt.Color(204, 255, 204));
-        jRadioButton3.setText("Outros");
+        rbOutros.setBackground(new java.awt.Color(204, 255, 204));
+        buttonGroup1.add(rbOutros);
+        rbOutros.setText("Outros");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -116,11 +130,11 @@ public class FrCadastro extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton2)
+                .addComponent(rbFeminino)
                 .addGap(14, 14, 14)
-                .addComponent(jRadioButton1)
+                .addComponent(rbMasculino)
                 .addGap(10, 10, 10)
-                .addComponent(jRadioButton3)
+                .addComponent(rbOutros)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -128,43 +142,53 @@ public class FrCadastro extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton3))
+                    .addComponent(rbFeminino)
+                    .addComponent(rbMasculino)
+                    .addComponent(rbOutros))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 281, -1));
 
-        jTextField5.setBackground(new java.awt.Color(204, 255, 204));
-        jTextField5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 281, -1));
+        edSenha.setBackground(new java.awt.Color(204, 255, 204));
+        edSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
+        edSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edSenhaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(edSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 281, -1));
 
-        jFormattedTextField1.setBackground(new java.awt.Color(204, 255, 204));
-        jFormattedTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Telefone", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
+        edTelefone.setBackground(new java.awt.Color(204, 255, 204));
+        edTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Telefone", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+            edTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanel1.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 130, -1));
-
-        jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 102));
-        jButton1.setText("CANCELAR");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        edTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                edTelefoneActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 220, 132, 30));
+        jPanel1.add(edTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 130, -1));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 102, 102));
-        jButton2.setText("CANCELAR");
-        jButton2.setBorder(null);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 139, 30));
+        btnCancelarBusca.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnCancelarBusca.setForeground(new java.awt.Color(0, 102, 102));
+        btnCancelarBusca.setText("CANCELAR");
+        btnCancelarBusca.setBorder(null);
+        btnCancelarBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarBuscaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCancelarBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 220, 132, 30));
+
+        btnCancelar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(0, 102, 102));
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.setBorder(null);
+        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 139, 30));
 
         jTable2.setBackground(new java.awt.Color(204, 255, 204));
         jTable2.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
@@ -187,37 +211,42 @@ public class FrCadastro extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 460, 90));
 
-        jTextField4.setBackground(new java.awt.Color(204, 255, 204));
-        jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 11))); // NOI18N
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 349, 50));
-
-        jButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 102, 102));
-        jButton3.setText("PESQUISAR");
-        jButton3.setBorder(null);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, 101, 40));
-
-        jButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 102, 102));
-        jButton4.setText("SALVAR");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        edPesquisar.setBackground(new java.awt.Color(204, 255, 204));
+        edPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 11))); // NOI18N
+        edPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                edPesquisarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 132, 30));
+        jPanel1.add(edPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 349, 50));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 102, 102));
-        jButton5.setText("ALTERAR");
-        jButton5.setBorder(null);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnPesquisar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnPesquisar.setForeground(new java.awt.Color(0, 102, 102));
+        btnPesquisar.setText("PESQUISAR");
+        btnPesquisar.setBorder(null);
+        jPanel1.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 101, 40));
+
+        btnSalvar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(0, 102, 102));
+        btnSalvar.setText("SALVAR");
+        btnSalvar.setBorder(null);
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 132, 30));
+        jPanel1.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 132, 30));
+
+        btnAlterar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnAlterar.setForeground(new java.awt.Color(0, 102, 102));
+        btnAlterar.setText("ALTERAR");
+        btnAlterar.setBorder(null);
+        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 132, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-game-die-48.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, -1, -1));
@@ -248,25 +277,46 @@ public class FrCadastro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    String sexo;
+    private void edNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edNomeActionPerformed
+        String nome = edNome.getText();
+    }//GEN-LAST:event_edNomeActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void rbFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFemininoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_rbFemininoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelarBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarBuscaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelarBuscaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void edEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edEmailActionPerformed
+        String email = edEmail.getText();
+    }//GEN-LAST:event_edEmailActionPerformed
+
+    private void edCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edCodigoActionPerformed
+        
+    }//GEN-LAST:event_edCodigoActionPerformed
+
+    private void edTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edTelefoneActionPerformed
+        String telefone = edTelefone.getText();
+    }//GEN-LAST:event_edTelefoneActionPerformed
+
+    private void edSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edSenhaActionPerformed
+        String senha = edSenha.getText();
+    }//GEN-LAST:event_edSenhaActionPerformed
+
+    private void edPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisarActionPerformed
+        String pesquisa = edPesquisar.getText();
+    }//GEN-LAST:event_edPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,30 +354,30 @@ public class FrCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlterar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCancelarBusca;
+    private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JTextField edCodigo;
+    private javax.swing.JTextField edEmail;
+    private javax.swing.JTextField edNome;
+    private javax.swing.JTextField edPesquisar;
+    private javax.swing.JTextField edSenha;
+    private javax.swing.JFormattedTextField edTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JRadioButton rbFeminino;
+    private javax.swing.JRadioButton rbMasculino;
+    private javax.swing.JRadioButton rbOutros;
     // End of variables declaration//GEN-END:variables
 }
