@@ -33,7 +33,7 @@ public class ConnectionFactory {
             return DriverManager.getConnection(URL, USER, PASS);
             //conecta com o banco e retorna a conexão
         } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Erro: " + ex.getMessage());
             return null;
             //caso caia na excessão retorna o erro e a conexão null
         }
@@ -86,7 +86,5 @@ public class ConnectionFactory {
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
-   
 }

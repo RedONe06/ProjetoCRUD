@@ -5,6 +5,12 @@
  */
 package br.ulbra.view;
 
+import br.ulbra.DAO.UsuarioDAO;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,6 +64,11 @@ public class FrLogin extends javax.swing.JFrame {
 
         edSenha.setBackground(new java.awt.Color(204, 255, 204));
         edSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 11))); // NOI18N
+        edSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                edSenhaKeyPressed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-game-die-48.png"))); // NOI18N
 
@@ -72,6 +83,14 @@ public class FrLogin extends javax.swing.JFrame {
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
+            }
+        });
+        btnLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLoginKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnLoginKeyReleased(evt);
             }
         });
 
@@ -127,9 +146,9 @@ public class FrLogin extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnLogin1))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogin1)
+                    .addComponent(btnLogin))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -150,18 +169,25 @@ public class FrLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String email;
+
         String senha = new String(edSenha.getPassword()).trim();
-  
-        email = edEmail.getText();
-        if(email.equals("andrielejorasdossantos@gmail.com") && senha.equals("123")){
-            FrMenu menu = new FrMenu();
-            menu.setVisible(true);
-            this.dispose();
+        String email = edEmail.getText();
+
+        try {
+            UsuarioDAO dao = new UsuarioDAO();
+
+            if (dao.checkLogin(email, senha)) {
+                FrMenu menu = new FrMenu();
+                menu.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Login ou senha inválida");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FrLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Login ou senha inválida");
-        }
+
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void edEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edEmailActionPerformed
@@ -171,6 +197,21 @@ public class FrLogin extends javax.swing.JFrame {
     private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnLogin1ActionPerformed
+
+    private void btnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyPressed
+        
+    }//GEN-LAST:event_btnLoginKeyPressed
+
+    private void btnLoginKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginKeyReleased
+
+    private void edSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edSenhaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            new FrCadastro().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_edSenhaKeyPressed
 
     /**
      * @param args the command line arguments

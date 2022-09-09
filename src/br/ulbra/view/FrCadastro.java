@@ -16,6 +16,7 @@ public class FrCadastro extends javax.swing.JFrame {
      */
     public FrCadastro() {
         initComponents();
+        this._esconderFormulario();
     }
 
     /**
@@ -30,7 +31,16 @@ public class FrCadastro extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        edPesquisar = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JButton();
+        btnAdicionar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pnCadastro = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         edCodigo = new javax.swing.JTextField();
         edNome = new javax.swing.JTextField();
@@ -41,17 +51,9 @@ public class FrCadastro extends javax.swing.JFrame {
         rbOutros = new javax.swing.JRadioButton();
         edSenha = new javax.swing.JTextField();
         edTelefone = new javax.swing.JFormattedTextField();
-        btnCancelarBusca = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        edPesquisar = new javax.swing.JTextField();
-        btnPesquisar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,15 +68,118 @@ public class FrCadastro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable2.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Nome", "Email", "Telefone", "Sexo", "Senha"
+            }
+        ));
+        jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable2.setGridColor(new java.awt.Color(204, 255, 204));
+        jTable2.setSelectionBackground(new java.awt.Color(0, 153, 153));
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        edPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 11))); // NOI18N
+        edPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edPesquisarActionPerformed(evt);
+            }
+        });
+
+        btnPesquisar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnPesquisar.setForeground(new java.awt.Color(0, 102, 102));
+        btnPesquisar.setText("PESQUISAR");
+        btnPesquisar.setBorder(null);
+
+        btnAdicionar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnAdicionar.setForeground(new java.awt.Color(0, 102, 102));
+        btnAdicionar.setText("ADICIONAR");
+        btnAdicionar.setBorder(null);
+        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-game-die-48.png"))); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel3.setText("SISTEMA");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel4.setText("CRUD");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(47, 47, 47))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(edPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(edPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(btnAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(31, 31, 31))
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 420));
+
+        pnCadastro.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("CADASTRO DE USUÁRIOS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         edCodigo.setBackground(new java.awt.Color(204, 255, 204));
         edCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Código", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
@@ -83,7 +188,6 @@ public class FrCadastro extends javax.swing.JFrame {
                 edCodigoActionPerformed(evt);
             }
         });
-        jPanel1.add(edCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 139, -1));
 
         edNome.setBackground(new java.awt.Color(204, 255, 204));
         edNome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nome", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
@@ -92,7 +196,6 @@ public class FrCadastro extends javax.swing.JFrame {
                 edNomeActionPerformed(evt);
             }
         });
-        jPanel1.add(edNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 281, -1));
 
         edEmail.setBackground(new java.awt.Color(204, 255, 204));
         edEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
@@ -101,7 +204,6 @@ public class FrCadastro extends javax.swing.JFrame {
                 edEmailActionPerformed(evt);
             }
         });
-        jPanel1.add(edEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 281, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sexo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 11))); // NOI18N
@@ -148,8 +250,6 @@ public class FrCadastro extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 281, -1));
-
         edSenha.setBackground(new java.awt.Color(204, 255, 204));
         edSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
         edSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +257,6 @@ public class FrCadastro extends javax.swing.JFrame {
                 edSenhaActionPerformed(evt);
             }
         });
-        jPanel1.add(edSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 281, -1));
 
         edTelefone.setBackground(new java.awt.Color(204, 255, 204));
         edTelefone.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Telefone", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 11))); // NOI18N
@@ -171,61 +270,18 @@ public class FrCadastro extends javax.swing.JFrame {
                 edTelefoneActionPerformed(evt);
             }
         });
-        jPanel1.add(edTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 130, -1));
 
-        btnCancelarBusca.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        btnCancelarBusca.setForeground(new java.awt.Color(0, 102, 102));
-        btnCancelarBusca.setText("CANCELAR");
-        btnCancelarBusca.setBorder(null);
-        btnCancelarBusca.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluir.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
+        btnExcluir.setForeground(new java.awt.Color(0, 102, 102));
+        btnExcluir.setText("EXCLUIR");
+        btnExcluir.setBorder(null);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarBuscaActionPerformed(evt);
+                btnExcluirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCancelarBusca, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 220, 132, 30));
 
-        btnCancelar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(0, 102, 102));
-        btnCancelar.setText("CANCELAR");
-        btnCancelar.setBorder(null);
-        jPanel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 139, 30));
-
-        jTable2.setBackground(new java.awt.Color(204, 255, 204));
-        jTable2.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Código", "Nome", "Email", "Telefone", "Sexo", "Senha"
-            }
-        ));
-        jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable2.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable2.setSelectionBackground(new java.awt.Color(0, 153, 153));
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 460, 90));
-
-        edPesquisar.setBackground(new java.awt.Color(204, 255, 204));
-        edPesquisar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Light", 0, 11))); // NOI18N
-        edPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edPesquisarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(edPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 349, 50));
-
-        btnPesquisar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
-        btnPesquisar.setForeground(new java.awt.Color(0, 102, 102));
-        btnPesquisar.setText("PESQUISAR");
-        btnPesquisar.setBorder(null);
-        jPanel1.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, 101, 40));
-
+        btnSalvar.setBackground(new java.awt.Color(204, 255, 204));
         btnSalvar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(0, 102, 102));
         btnSalvar.setText("SALVAR");
@@ -235,7 +291,6 @@ public class FrCadastro extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 132, 30));
 
         btnAlterar.setFont(new java.awt.Font("Segoe UI Black", 0, 11)); // NOI18N
         btnAlterar.setForeground(new java.awt.Color(0, 102, 102));
@@ -246,38 +301,85 @@ public class FrCadastro extends javax.swing.JFrame {
                 btnAlterarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 132, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-game-die-48.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 320, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel3.setText("SISTEMA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel4.setText("CRUD");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 370, 50, 20));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 838, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout pnCadastroLayout = new javax.swing.GroupLayout(pnCadastro);
+        pnCadastro.setLayout(pnCadastroLayout);
+        pnCadastroLayout.setHorizontalGroup(
+            pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(jLabel1))
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(edNome, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(edEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(edCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(edTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(edSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        pnCadastroLayout.setVerticalGroup(
+            pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnCadastroLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(13, 13, 13)
+                .addComponent(edNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(edEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(edCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(edSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+
+        getContentPane().add(pnCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 0, 320, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    String sexo;
+    public void _esconderFormulario() {
+        pnCadastro.setVisible(false);
+    }
+
+    public void _inserirItemNovo() {
+        pnCadastro.setVisible(true);
+        btnAlterar.setEnabled(false);
+        btnAlterar.setEnabled(false);
+    }
+
+    public void _confirmarAlteracao() {
+        pnCadastro.setVisible(true);
+        btnAlterar.setEnabled(true);
+        btnExcluir.setEnabled(true);
+        btnSalvar.setEnabled(false);
+    }
+
     private void edNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edNomeActionPerformed
         String nome = edNome.getText();
     }//GEN-LAST:event_edNomeActionPerformed
@@ -286,24 +388,20 @@ public class FrCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbFemininoActionPerformed
 
-    private void btnCancelarBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarBuscaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarBuscaActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+        this._esconderFormulario();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlterarActionPerformed
+    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
+        this._inserirItemNovo();
+    }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void edEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edEmailActionPerformed
         String email = edEmail.getText();
     }//GEN-LAST:event_edEmailActionPerformed
 
     private void edCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edCodigoActionPerformed
-        
+
     }//GEN-LAST:event_edCodigoActionPerformed
 
     private void edTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edTelefoneActionPerformed
@@ -317,6 +415,18 @@ public class FrCadastro extends javax.swing.JFrame {
     private void edPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edPesquisarActionPerformed
         String pesquisa = edPesquisar.getText();
     }//GEN-LAST:event_edPesquisarActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        this._confirmarAlteracao();
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        this._confirmarAlteracao();
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,9 +464,9 @@ public class FrCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnAlterar;
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCancelarBusca;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -370,12 +480,13 @@ public class FrCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JPanel pnCadastro;
     private javax.swing.JRadioButton rbFeminino;
     private javax.swing.JRadioButton rbMasculino;
     private javax.swing.JRadioButton rbOutros;
