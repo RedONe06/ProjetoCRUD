@@ -10,13 +10,13 @@ public class Usuario {
     private String emailUsuario;
     private String senhaUsuario;
     private String foneUsuario;
-    private String sexoUsuario;
+    private int sexoUsuario;
 
     public Usuario() {
     }
 
     public Usuario(int idUsuario, String nomeUsuario, String emailUsuario,
-            String senhaUsuario, String foneUsuario, String sexoUsuario) {
+            String senhaUsuario, String foneUsuario, int sexoUsuario) {
         this.idUsuario = idUsuario;
         this.nomeUsuario = nomeUsuario;
         this.emailUsuario = emailUsuario;
@@ -65,11 +65,11 @@ public class Usuario {
         this.foneUsuario = foneUsuario;
     }
 
-    public String getSexoUsuario() {
+    public int getSexoUsuario() {
         return sexoUsuario;
     }
 
-    public void setSexoUsuario(String sexoUsuario) {
+    public void setSexoUsuario(int sexoUsuario) {
         this.sexoUsuario = sexoUsuario;
     }
 

@@ -5,6 +5,10 @@
  */
 package br.ulbra.view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author s.lucas
@@ -148,8 +152,14 @@ public class FrMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrCadastro cadastro = new FrCadastro();
-        cadastro.setVisible(true);
+        FrCadastro cadastro;
+        try {
+            cadastro = new FrCadastro();
+            cadastro.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(FrMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed

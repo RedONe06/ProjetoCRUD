@@ -208,7 +208,11 @@ public class FrLogin extends javax.swing.JFrame {
 
     private void edSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edSenhaKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            new FrCadastro().setVisible(true);
+            try {
+                new FrCadastro().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(FrLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.dispose();
         }
     }//GEN-LAST:event_edSenhaKeyPressed
