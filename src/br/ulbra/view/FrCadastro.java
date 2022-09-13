@@ -10,9 +10,12 @@ import br.ulbra.entity.Usuario;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -130,7 +133,7 @@ public class FrCadastro extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Email", "Telefone", "Sexo", "Senha"
+                "Código", "Nome", "Email", "Senha", "Fone", "Sexo"
             }
         ));
         tbUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -396,16 +399,16 @@ public class FrCadastro extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(edTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(pnCadastroLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addGap(79, 79, 79)
                         .addComponent(jLabel1)))
                 .addGap(19, 19, 19))
         );
         pnCadastroLayout.setVerticalGroup(
             pnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnCadastroLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(edNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -471,13 +474,21 @@ public class FrCadastro extends javax.swing.JFrame {
             } else {
                 usuario.setSexoUsuario(3);
             }
-            usuariodao.create(usuario);
-            readJTable();
+            if (!usuario.getNomeUsuario().isEmpty()
+                    && !usuario.getEmailUsuario().isEmpty()
+                    && !usuario.getSenhaUsuario().isEmpty()
+                    && !usuario.getFoneUsuario().isEmpty()) {
+                usuariodao.create(usuario);
+                readJTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.");
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(FrCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
         this._esconderFormulario();
-
+        this.setSize(525, 420);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
@@ -503,15 +514,66 @@ public class FrCadastro extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         this._confirmarAlteracao();
         this.setSize(525, 420);
+
+        try {
+            UsuarioDAO usuariodao = new UsuarioDAO();
+
+            Usuario usuario = new Usuario(Integer.parseInt(edCodigo.getText()),
+                    edNome.getText(), edEmail.getText(), edSenha.getText(), edTelefone.getText());
+
+            if (rbMasculino.isSelected()) {
+                usuario.setSexoUsuario(1);
+            } else if (rbFeminino.isSelected()) {
+                usuario.setSexoUsuario(2);
+            } else {
+                usuario.setSexoUsuario(3);
+            }
+
+            usuariodao.update(usuario);
+            readJTable();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(FrCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void tbUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsuariosMouseClicked
         this._inserirItemNovo();
+        this._confirmarAlteracao();
+
+        if (tbUsuarios.getSelectedRow() != -1) {
+
+            edCodigo.setText(tbUsuarios.getValueAt(tbUsuarios.getSelectedRow(), 0).toString());
+            edNome.setText(tbUsuarios.getValueAt(tbUsuarios.getSelectedRow(), 1).toString());
+            edEmail.setText(tbUsuarios.getValueAt(tbUsuarios.getSelectedRow(), 2).toString());
+            edSenha.setText(tbUsuarios.getValueAt(tbUsuarios.getSelectedRow(), 3).toString());
+            edTelefone.setText(tbUsuarios.getValueAt(tbUsuarios.getSelectedRow(), 4).toString());
+            int s = (int) tbUsuarios.getValueAt(tbUsuarios.getSelectedRow(), 5);
+
+            if (s == 1) {
+                rbMasculino.setSelected(true);
+            } else if (s == 2) {
+                rbFeminino.setSelected(true);
+            } else {
+                rbOutros.setSelected(true);
+            }
+        }
     }//GEN-LAST:event_tbUsuariosMouseClicked
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         this._confirmarAlteracao();
         this.setSize(525, 420);
+        try {
+            UsuarioDAO usuariodao = new UsuarioDAO();
+            Usuario usuario = new Usuario();
+
+            usuario.setIdUsuario(Integer.parseInt(edCodigo.getText()));
+            usuariodao.delete(usuario);
+            readJTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(FrCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -525,7 +587,7 @@ public class FrCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void edSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edSenhaKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 new FrCadastro().setVisible(true);
             } catch (SQLException ex) {
